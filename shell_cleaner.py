@@ -37,7 +37,7 @@ if uploaded_file:
     df = df[~df['Vehicle License Number'].isin(vehicles_to_remove)]
     
     # Step 4: Clean whitespace in 'Vehicle License Number'
-    df['Vehicle License Number'] = df['Vehicle License Number'].astype(str).str.strip()
+    df['Vehicle License Number'] = df['Vehicle License Number'].astype(str).str.replace(" ", "", regex=False)
 
     # Final record count
     st.write(f"Filtered rows: {len(df)}")
